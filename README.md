@@ -1,25 +1,42 @@
+# PasarUp
 
+PasarUp adalah aplikasi marketplace mobile yang dirancang untuk mendigitalisasi pengalaman berbelanja di pasar tradisional.
 
-
-- **Nama:** [Dandra Jovan ALexi Tombokan]
-- **NPM:** [24082010180]
+## Identitas Pembuat
+- **Nama:** Dandra Jovan ALexi Tombokan
+- **NPM:** 24082010180
 
 ## Deskripsi Aplikasi
-PasarUp bertujuan untuk menjembatani antara pedagang pasar tradisional dengan konsumen modern. Dengan antarmuka yang ramah pengguna, aplikasi ini menyediakan platform di mana kebutuhan pokok dapat dipesan dengan mudah, mendukung ekosistem ekonomi lokal melalui integrasi teknologi.
+PasarUp bertujuan untuk menjembatani antara pedagang pasar tradisional dengan konsumen modern. Aplikasi ini menyediakan platform di mana kebutuhan pokok dapat dipesan dengan mudah melalui perangkat Android.
 
 ## Daftar Fitur
-1. **Splash Screen**: Layar perkenalan saat aplikasi pertama kali dibuka.
-2. **Autentikasi (Login & Register)**: Sistem masuk dan pendaftaran pengguna untuk keamanan dan personalisasi data.
-3. **Beranda (Home)**: Menampilkan rekomendasi toko dan akses cepat ke berbagai menu navigasi.
-4. **Pencarian (Search)**: Fitur untuk menemukan produk atau toko spesifik dengan cepat.
-5. **Katalog Produk & Toko**: Halaman detail yang menampilkan daftar barang yang dijual oleh pedagang tertentu.
-6. **Detail Produk**: Informasi lengkap mengenai harga, deskripsi, dan foto produk.
-7. **Keranjang Belanja (Cart)**: Tempat penyimpanan sementara produk yang ingin dibeli sebelum proses checkout.
-8. **Checkout**: Proses finalisasi pemesanan barang.
-9. **Riwayat Pesanan**: Daftar transaksi yang telah dilakukan oleh pengguna untuk memantau status belanja.
-10. **Profil Pengguna**: Informasi akun dan pengaturan pengguna.
+1. **Splash Screen**: Layar perkenalan saat aplikasi dibuka.
+2. **Autentikasi**: Login & Register menggunakan SharedPreferences.
+3. **Beranda**: Menampilkan daftar toko menggunakan RecyclerView.
+4. **Detail Toko & Produk**: Menampilkan list produk per toko dengan Grid layout.
+5. **Keranjang Belanja**: Fitur tambah/kurang item secara real-time.
+6. **Riwayat Pesanan**: Menyimpan list transaksi yang sudah checkout.
+7. **Profil**: Menampilkan informasi akun pengguna.
 
-## Deskripsi Fitur Teknis
-- **Manajemen State**: Menggunakan fragment-based navigation untuk transisi layar yang ringan dan responsif.
-- **Penyimpanan Lokal**: Menggunakan `SharedPreferences` untuk menyimpan data profil pengguna secara sederhana.
-- **UI/UX**: Menggunakan `RecyclerView` dengan berbagai `Adapter` (seperti `TokoAdapter`, `produkadapter`, `OrderAdapter`) untuk menampilkan data dalam bentuk list atau grid secara dinamis.
+## Implementasi Teknis & Data
+Berikut adalah rincian penggunaan class dan manajemen data:
+
+### 1. Manajemen Layar (Fragment)
+Aplikasi menggunakan **Single Activity Architecture** (MainActivity) dengan Fragment untuk efisiensi memori dan navigasi yang mulus.
+- **Class Utama:** `MainActivity.kt`, `BerandaFragment.kt`, `StoreDetailFragment.kt`.
+
+### 2. Penyimpanan Data Akun (Permanen)
+Menggunakan **SharedPreferences** untuk menyimpan sesi login dan nama user.
+- **Class:** `LoginFragment.kt` (Simpan) & `ProfileFragment.kt` (Baca).
+
+### 3. Manajemen Keranjang (Memory Storage)
+Menggunakan **Object Singleton** agar data keranjang bisa diakses dari fragment mana pun tanpa hilang saat pindah halaman.
+- **Class:** `CartManager` di dalam file `CartItem.kt`.
+
+### 4. Pengiriman Data (Bundle)
+Menggunakan **Bundle Arguments** untuk mengirim data spesifik dari satu fragment ke fragment lainnya.
+- **Class:** `StoreDetailFragment.kt` (Mengambil data nama/foto toko yang diklik).
+
+### 5. UI Dinamis (Adapter)
+Menggunakan **RecyclerView Adapter** untuk mencetak list data secara otomatis dan efisien.
+- **Class:** `TokoAdapter.kt`, `GridProductAdapter.kt`, `OrderAdapter.kt`.
