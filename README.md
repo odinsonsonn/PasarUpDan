@@ -1,10 +1,8 @@
-# PasarUp
 
-PasarUp adalah aplikasi marketplace mobile yang dirancang untuk mendigitalisasi pengalaman berbelanja di pasar tradisional. Aplikasi ini memungkinkan pengguna untuk mencari toko, melihat produk segar, dan melakukan pemesanan secara efisien melalui perangkat Android.
 
-## Identitas Pembuat
-- **Nama:** [NAMA ANDA]
-- **NPM:** [NPM ANDA]
+
+- **Nama:** [Dandra Jovan ALexi Tombokan]
+- **NPM:** [24082010180]
 
 ## Deskripsi Aplikasi
 PasarUp bertujuan untuk menjembatani antara pedagang pasar tradisional dengan konsumen modern. Dengan antarmuka yang ramah pengguna, aplikasi ini menyediakan platform di mana kebutuhan pokok dapat dipesan dengan mudah, mendukung ekosistem ekonomi lokal melalui integrasi teknologi.
